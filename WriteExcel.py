@@ -166,4 +166,5 @@ except FileNotFoundError:
 
 except ValueError:
     print("Code Error. Please try again.")
-
+except:
+    print("Unknown Error please contact atekhaeseosa@gmail.com")
