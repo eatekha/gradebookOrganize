@@ -1,5 +1,3 @@
-import openpyxl
-
 from Report import *
 from openpyxl import *
 from openpyxl.styles import Font
@@ -9,11 +7,11 @@ import random
 
 """ Functions for Excel Worksheet """
 
-def autofitColumns():
+"""def autofitColumns():
     letters = 'ABCDEFGHIJ'  # to add more
     for x in range(len(letters)):
         each_letter = letters[x]
-        ws.column_dimensions[each_letter].auto_size = True
+        ws.column_dimensions[each_letter].auto_size = True"""
 def makeTableHeaders():
     letters = 'ABCDEFGHIJ'  # to add more
     count = 0
@@ -137,11 +135,8 @@ try:
 
     max_column = makeTableHeaders()  # makes the table headers
     max_row = addToRows()
-    autofitColumns()
 
-    example = ws['J3']
-    example.value = "slkajflksjdfklajfklajf"
-    '''    try:
+    try:
         randomNum = random.randint(0, 10000)
         tab = Table(displayName="GradesTablev" + str(randomNum),
                     ref="A8:" + max_column + max_row)  # calling header value calls last value form makingHeaders()
@@ -155,7 +150,6 @@ try:
                            showLastColumn=False, showRowStripes=True, showColumnStripes=True)
     tab.tableStyleInfo = style
     ws.add_table(tab)
-    '''
     wb.save(file + ".xlsx")
 
 except PermissionError:
@@ -167,4 +161,7 @@ except FileNotFoundError:
 except ValueError:
     print("Code Error. Please try again.")
 except:
-    print("Unknown Error please contact atekhaeseosa@gmail.com")
+    print("UnknownError, please contact atekhaeseosa@gmail.com")
+
+print("\nTo autofit width of table in Microsoft Excel, highlight all of the gradeTable, "
+      "click the FORMAT button on the top right, then click AUTOFIT COLUMN WIDTH.\n Enjoy!")
