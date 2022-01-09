@@ -151,7 +151,9 @@ try:
     tab.tableStyleInfo = style
     ws.add_table(tab)
     wb.save(file + ".xlsx")
-
+    
+    print("\nTo autofit width of table in Microsoft Excel, highlight all of the gradeTable, "
+          "click the FORMAT button on the top right, then click AUTOFIT COLUMN WIDTH.\n Enjoy!")
 except PermissionError:
     print("Unable to convert to Excel file. \nMake sure the workbook is closed and try again.")
 
@@ -163,5 +165,4 @@ except ValueError:
 except:
     print("UnknownError, please contact atekhaeseosa@gmail.com")
 
-print("\nTo autofit width of table in Microsoft Excel, highlight all of the gradeTable, "
-      "click the FORMAT button on the top right, then click AUTOFIT COLUMN WIDTH.\n Enjoy!")
+
