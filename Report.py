@@ -61,3 +61,5 @@ try:
     className = className[6:endName]
 except IndexError:
     className = input("Please enter classname: ")
+except:
+    print("Unknown Error please contact atekhaeseosa@gmail.com")
