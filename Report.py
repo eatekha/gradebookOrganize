@@ -32,6 +32,7 @@ for x in range(len(nameslist)):
     grade = percent(markslist[x], outoflist[x])
     maindict[name] = grade
 
+    #yea
 for name in sorted(nameslist): 
     regversion = maindict[name]
     strversion = str(regversion)
