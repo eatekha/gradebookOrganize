@@ -1,16 +1,12 @@
 from WebScrapper import *
-
-
 """goal to make gradebook more organized"""
 
-
-
 maindict = dict()
-assigndict = dict()
-quizdict = dict()
-labdict = dict()
-examdict = dict()
-
+assigndict = {"AssignmentName":"AssignmentGrade"}
+quizdict = {"QuizName":"QuizGrade"}
+labdict = {"LabName":"LabGrade"}
+examdict = {"ExamName":"ExamGrade"}
+otherdict = {"Name":"Grade"}
 
 def is_float(element):
     try:
@@ -28,7 +24,7 @@ def percent(x, y):
         else:
             grade = round(float(grade), 2)
         return grade
-    return "-"  # fix this for decimals not workking rn
+    return '-'  # fix this for decimals not workking rn
 
 
 for x in range(len(nameslist)):
@@ -36,17 +32,20 @@ for x in range(len(nameslist)):
     grade = percent(markslist[x], outoflist[x])
     maindict[name] = grade
 
-for name in sorted(nameslist):  # maybe change to function
+for name in sorted(nameslist): 
     regversion = maindict[name]
     strversion = str(regversion)
-    if "assignment" in name.lower():
-        assigndict[name] = strversion + "%"
-    if "quiz" in name.lower():
-        quizdict[name] = strversion + "%"
-    if "lab" in name.lower():
-        labdict[name] = strversion + "%"
-    if ("midterm" in name.lower()) or ("final" in name.lower()) or ("test" in name.lower()):
-        examdict[name] = strversion + "%"
+    if strversion != '-':
+        if "assignment" in name.lower():
+            assigndict[name] = strversion + "%"
+        elif "quiz" in name.lower():
+            quizdict[name] = strversion + "%"
+        elif "lab" in name.lower():
+            labdict[name] = strversion + "%"
+        elif ("midterm" in name.lower()) or ("final" in name.lower()) or ("test" in name.lower()):
+            examdict[name] = strversion + "%"
+        else:
+            otherdict[name] = strversion + "%"
 try:
     count = 0
     for x in range(len(className) - 3):
@@ -61,5 +60,3 @@ try:
     className = className[6:endName]
 except IndexError:
     className = input("Please enter classname: ")
-except:
-    print("Unknown Error please contact atekhaeseosa@gmail.com")
