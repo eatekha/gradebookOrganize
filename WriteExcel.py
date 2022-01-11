@@ -4,6 +4,7 @@ from openpyxl.styles import Font
 from openpyxl.worksheet.table import Table, TableStyleInfo
 import random
 
+# writeToExcel
 def writeToExcel():
     """Variables """
     dictlist = [assigndict,quizdict,labdict,otherdict,examdict]
