@@ -32,7 +32,7 @@ outoflist = []
 
 for name in names:
     nameslist.append(name.text)
-
+#gradescores
 for marks in gradeScores:
     eachMark = marks.find_element_by_class_name('gb-summary-grade-score-raw')
     outOf = marks.find_element_by_class_name('gb-summary-grade-score-outof')
